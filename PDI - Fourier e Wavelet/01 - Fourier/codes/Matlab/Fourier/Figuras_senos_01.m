@@ -1,0 +1,44 @@
+%%
+clc
+close all
+clear all
+%% Gera onda senoidais
+
+fund = 1;
+
+f = [1*fund 2*fund 3*fund];
+w = 2*pi.*f;
+
+t = 0:0.001:2;
+
+for i = 1:length(f)
+    
+   y(:,i) = sin(w(i)*t);   
+    
+end
+
+
+%% Plots
+
+% Figura 01
+
+load colors_01.mat;
+rng(s);
+
+figure_preset()
+hold on
+
+for i = 1:length(f)
+   
+    plot(t,y(:,i), 'Color',rand(1,3) , 'LineWidth', 3)
+    
+end
+
+xlabel = 'Tempo (s)';
+ylabel = 'Amplitude';
+legenda = {'Fund. (1 Hz)', '2 Hz', '3 Hz'};
+
+figure_postset(xlabel, ylabel, 'Legend', legenda, 'Orientation', ...
+               'vertical')
+%%           
+saveFig_eps('Senos')

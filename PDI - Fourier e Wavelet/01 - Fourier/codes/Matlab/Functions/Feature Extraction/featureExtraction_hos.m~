@@ -1,0 +1,58 @@
+function HOS = featureExtraction_hos(data)
+% =========================================================================
+% A feature extraction module based on Higher Order Statistics (HOS).
+% =========================================================================
+% Fucntion call:
+% =====================
+% -- Format 01:
+% featureExtraction_hos(data)
+%
+% -- Format 02:
+% featureExtraction_fft(data, moments)
+%
+% -- Format 03:
+% featureExtraction_fft(data, fs, fundamental, harmonics)
+%
+% =====================
+% Arguments:
+% ===
+% - data: input signal expressed in a 1xn vector
+% - fs: sampling frequency 
+% - fundamental: fundamental frequency
+% - harmonics: n multiples of fundamental frequencies, wherein n is
+% 1,2,3..n_max
+% =====================
+% Returns:
+% ===
+% - FFT: a struct variable, with the following fields:
+% - magnitude: a 1xn magnitude vector, containg amplitude of each harmonic
+% presented in data signal. Its return respect Nyquidst Theorem.
+% - frequency: a frequency vector, based in sampling frequency (fs).
+% - harmonics.f: frequencies returned according harmonics argument.
+% - harmonics.value: amplitude values returned according harmonics argument.
+% =========================================================================
+% Author: Navar M M N
+% contact: navarmedeiros@gmail.com
+% last update: 22/10/2017
+% ps.: Please, let me know any bugs you may find, or suggetions in order to
+% upgrade our work.
+
+HOS.skewness = skewness(data);
+HOS.kurtosis = skewness(data);
+
+if nargin == 2
+    
+    moments = varargin{1};
+    
+    for  i = 1:length(moments)
+        if moments{i} == 'rms'
+            HOS.rms = rms(data);
+        
+        elseif
+        end
+    end
+        
+end
+
+end
+

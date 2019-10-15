@@ -1,0 +1,34 @@
+%%
+clc
+close all
+clear all
+%%
+
+f = [1 2 3 4 5];
+w = 2*pi.*f;
+
+t = 0:0.001:2;
+
+for i = 1:length(f)
+    
+   y(i) = sin(w(i)*t);   
+    
+end
+
+
+
+
+%%
+
+figure_preset()
+
+plot(t,y1, 'b', 'LineWidth', 3)
+
+xlabel = 'Tempo (s)';
+ylabel = 'Amplitude';
+legenda = {'1 Hz'};
+
+figure_postset(xlabel, ylabel, 'Legend', legenda, 'Orientation', ...
+               'horizontal')
+           
+saveFig_eps('Senos')
